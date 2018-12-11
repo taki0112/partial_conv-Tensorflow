@@ -16,10 +16,14 @@ Simple Tensorflow implementation of [Partial Convolution based Padding](https://
 ![activation_map](./assets/activation_map.png)
 
 ### ImageNet Classification
-<div align="">
-  <img src="./assets/imagenet_classification.png" width="600">
-  <img src="./assets/best_top1_acc.png" width="900">
-</div>
+<p align='center'>  
+  <img src='./assets/imagenet_classification.png' width='440'/>
+</p>
+
+<p align='center'>  
+  <img src='./assets/best_top1_acc.png' width='660'/>
+</p>
+
 
 ### Segmentation (DeepLab V3+)
 ![seg_1](./assets/segmentation_1.png)
