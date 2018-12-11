@@ -21,10 +21,9 @@ Simple Tensorflow implementation of [Partial Convolution based Padding](https://
   <img src="./assets/best_top1_acc.png" width="900">
 </div>
 
-### Segmentation
+### Segmentation (DeepLab V3+)
 ![seg_1](./assets/segmentation_1.png)
 ![seg_2](./assets/segmentation_2.png)
-
 
 
 ## Author
