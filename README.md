@@ -1,4 +1,4 @@
-# Partial_Conv-Tensorflow
+# PartialConv-Tensorflow
 Simple Tensorflow implementation of [Partial Convolution based Padding](https://arxiv.org/abs/1811.11718)
 ![partial_conv](./assets/partial_conv.png)
 
