@@ -5,10 +5,10 @@ Simple Tensorflow implementation of [Partial Convolution based Padding](https://
 ## How to use
 ```python
   # typical convolution layer with zero padding
-  x = conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv')
+  x = conv(x, channels, kernel=3, stride=2, use_bias=True, padding='SAME', scope='conv')
   
   # partial convolution based padding
-  x = partial_conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv')
+  x = partial_conv(x, channels, kernel=3, stride=2, use_bias=True, padding='SAME', scope='conv')
 
 ```
 ## Results
