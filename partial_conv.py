@@ -13,7 +13,7 @@ weight_regularizer = tf_contrib.layers.l2_regularizer(scale=0.0001)
 ##################################################################################
 # Layer
 ##################################################################################
-def partial_conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv_0'):
+def partial_conv(x, channels, kernel=3, stride=2, use_bias=True, padding='SAME', scope='conv_0'):
     with tf.variable_scope(scope):
         with tf.variable_scope('mask'):
             _, h, w, _ = x.get_shape().as_list()
@@ -23,7 +23,7 @@ def partial_conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv_0')
 
             update_mask = tf.layers.conv2d(mask, filters=1,
                                            kernel_size=kernel, kernel_initializer=tf.constant_initializer(1.0),
-                                           strides=stride, padding='SAME', use_bias=False, trainable=False)
+                                           strides=stride, padding=padding, use_bias=False, trainable=False)
 
             mask_ratio = slide_window / (update_mask + 1e-8)
             update_mask = tf.clip_by_value(update_mask, 0.0, 1.0)
@@ -33,7 +33,7 @@ def partial_conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv_0')
             x = tf.layers.conv2d(x, filters=channels,
                                  kernel_size=kernel, kernel_initializer=weight_init,
                                  kernel_regularizer=weight_regularizer,
-                                 strides=stride, padding='SAME', use_bias=False)
+                                 strides=stride, padding=padding, use_bias=False)
             x = x * mask_ratio
 
             if use_bias:
