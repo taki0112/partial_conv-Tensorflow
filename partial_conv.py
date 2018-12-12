@@ -16,12 +16,12 @@ weight_regularizer = tf_contrib.layers.l2_regularizer(scale=0.0001)
 def partial_conv(x, channels, kernel=3, stride=2, use_bias=True, scope='conv_0'):
     with tf.variable_scope(scope):
         with tf.variable_scope('mask'):
-            in_channels = x.get_shape().as_list()[-1]
+            _, h, w, _ = x.get_shape().as_list()
 
-            slide_window = kernel * kernel * in_channels
-            mask = tf.ones_like(x)
+            slide_window = kernel * kernel
+            mask = tf.ones(shape=[1, h, w, 1])
 
-            update_mask = tf.layers.conv2d(mask, filters=channels,
+            update_mask = tf.layers.conv2d(mask, filters=1,
                                            kernel_size=kernel, kernel_initializer=tf.constant_initializer(1.0),
                                            strides=stride, padding='SAME', use_bias=False, trainable=False)
 
